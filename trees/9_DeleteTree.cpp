@@ -23,7 +23,7 @@ void deleteTree(TreeNode *root) {
         delete root;
     }
 }
-// Below is the prabhats implementation for delete tree function
+// Below is the prabhats implementation for delete tree functionccl
 
 // void deleteTree(TreeNode *root) {
 //     if(root == nullptr)
