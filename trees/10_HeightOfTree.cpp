@@ -12,26 +12,15 @@ struct TreeNode {
     }
 };
 
-void deleteTree(TreeNode *root) {
-    if(root == nullptr) return;
-    if(root!=nullptr) {
-        deleteTree(root->left);
-        deleteTree(root->right);
-        cout<<"Deleting: "<<root->val<<" ";
-        root->left = nullptr;
-        root->right = nullptr;
-        delete root;
-    }
+int height(TreeNode *root) {
+    if(root == nullptr)
+        return 0;
+    return 1+max(height(root->left), height(root->right));
+    // Below is the implementation of Prabhats program, I'm not sure why prabhat used the variables to store the height of left and right subtree
+    // int l = height(root->left);
+    // int r = height(root->right);
+    // return 1+max(l,r);
 }
-// Below is the prabhats implementation for delete tree functionccl
-
-// void deleteTree(TreeNode *root) {
-//     if(root == nullptr)
-//         return;
-//     deleteTree(root->left);
-//     deleteTree(root->right);
-//     delete root;
-// }
 
 int main() {
     TreeNode *root=new TreeNode(17);
@@ -42,6 +31,6 @@ int main() {
     root->right->left=new TreeNode(81);
     root->right->right=new TreeNode(40);
     root->right->right->right=new TreeNode(121);
-    deleteTree(root);
+    cout<<height(root)<<endl;
     return 0;
 }
