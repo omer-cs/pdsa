@@ -36,5 +36,6 @@ int main() {
     root->right->left=new TreeNode(81);
     root->right->right=new TreeNode(40);
     root->right->right->right=new TreeNode(121);
-    cout<<search(root,40);
+    cout<<search(root,40)<<endl;
+    return 0;
 }

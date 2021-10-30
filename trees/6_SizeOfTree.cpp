@@ -5,21 +5,17 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    // Treenode(int x): val(x), left(NULL), right(NULL) {}
-    // the above is advanced notation I guess used to declare
+    // TreeNode(int x): val(x), left(NULL), right(NULL) {}
     TreeNode(int x) {
         val = x;
-        left = NULL;
-        right = NULL;
+        left = right = NULL;
     }
 };
 
-int maxElement(TreeNode *root) {
+int size(TreeNode *root) {
     if(root == nullptr)
-        return INT32_MIN;
-    int l = maxElement(root->left);
-    int r = maxElement(root->right);
-    return max({l,r,root->val});
+        return 0;
+    return 1+size(root->left)+size(root->right);
 }
 
 int main() {
@@ -31,7 +27,6 @@ int main() {
     root->right->left=new TreeNode(81);
     root->right->right=new TreeNode(40);
     root->right->right->right=new TreeNode(121);
-    cout<<maxElement(root);
-    cout<<endl;
+    cout<<size(root)<<endl;
     return 0;
 }
