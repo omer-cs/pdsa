@@ -3,6 +3,7 @@
 // Solution: One simple way of solving this problem is: find the maximum element in left subtree,
 // find the maximum element in right sub tree, compare them with root data and select the one which
 // is giving the maximum value. This approach can be easily implemented with recursion.
+
 #include <bits/stdc++.h>
 using namespace std;
 
