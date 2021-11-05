@@ -1377,3 +1377,175 @@ knapsack
 
 LIS
 LCS
+
+EDIT DISATNCE : 
+
+
+Two Strings
+
+A--->B
+
+
+EDITING
+
+remove E
+
+DITING
+
+insert S
+
+DISTING
+
+replace i with A
+
+DISTANG
+
+replace G with C
+
+DISTANC
+
+insert E
+
+DISTANCE
+
+
+
+A[0.....n-1]   
+
+B[0.....m-1]   
+
+
+Insertion :
+
+A[0....n-1]	    	-         1
+B[0....m-2]       B[m-1]
+
+
+Deletion :
+
+A[0....n-2]	    	A[n-1]    1
+B[0....m-1]       	-
+
+Match/Mismatch
+
+A[0....n-2]	    	A[n-1]    1(if mismatch)
+B[0....m-2]       	B[m-1]
+
+
+
+edit_distance (a,b,m,n):
+
+k=0 if match, 1 if mismatch
+
+
+min{	edit_distance(a,b,m-1,n)+1
+		edit_distance(a,b,m,n-1)+1
+		edit_distance(a,b,m-1,n-1)+K
+	}
+
+
+
+EDITING
+DISTANCE
+
+
+EDITIN          G
+DISTANCE
+
+
+EDITING
+DISTANC         E
+
+EDITIN          G
+DISTANC         E
+
+
+
+reconstruct solution
+
+
+
+MATRIX CHAIN MULTIPLICATION
+
+A*B =B*A
+
+Ax(BxC) =(AxB)xC
+
+A* B*C *D
+
+A × ((B × C) × D)
+
+A=50*20
+B=20*1
+C=1*10
+D=10*100
+
+
+20*1*10
+
+20*10*100
+
+50*20*100
+
+(A × B) × (C × D)
+
+50*20*1+1*10*100+50*1*100
+
+
+let M(i,j) be min cost of computing Ai*.......Aj-1
+
+M(2,6)=A2*A3*A4*A5
+
+
+
+M(i,j)= min{M(i,k)+M(k,j)+mi.mk.mj} i<k<j
+
+
+n=size of(m)
+matrix_mult(m,i,j)
+
+for k :i+1->j
+
+min()
+
+
+GRAPHS :
+
+
+to do : how to store graphs ?
+		adjaceny matrix
+		adjaceny list
+
+
+BFS :
+
+
+Template :
+
+
+directions :
+
+
+X[]={-1, -1, -1, 0, 0, 1, 1, 1}
+Y[]={-1, 0, 1, -1, 1, -1, 0, 1}
+
+8 directions 
+
+
+4 direction 
+
+safe condition : ***** you do this before moving to the step
+
+bool fxn sign(grid,int r,int c)
+	r>=0&&r<graph.size()&&c>=0&&c<graph[0].size()
+
+
+void DFS(vector<vector<int>>&graph,int r,int c)
+{
+    // cout<<r<<" "<<c<<endl;
+    graph[r][c]=1;
+    for (int k = 0; k < 8; ++k) 
+        if (isSafe(graph, r+X[k], c+Y[k])) 
+                DFS(graph,r+X[k], c+Y[k]); 
+
+}
